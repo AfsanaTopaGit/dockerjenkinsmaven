@@ -1,19 +1,31 @@
 package com.dockerjenkinsmaven.www.tests;
 
-import org.testng.annotations.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.junit.After;
+import org.junit.Before;
 import org.testng.annotations.Test;
 
-public class homeTest {
+import com.dockerjenkinsmaven.www.pages.BasePage;
+
+
+public class homeTest extends BasePage {
+	
+	
+	@Before
+	public void initialize() {
+		initializeBrowser();
+	}
+	
 	
 	@Test
 	public void testmethod() {
 		String baseURL="http://www.facebook.com";
-//		System.setProperty("webdriver.firefox.marionette","Macintosh\\Users\\metootopa\\Downloads\\geckodriver.tar");
-		System.setProperty("webdriver.firefox.marionette","Macintosh\\Users\\metootopa\\Downloads\\geckodriver.tar");
-		WebDriver driver= new FirefoxDriver();
 		driver.get(baseURL);
+		
+	}
+	
+	
+	@After
+	public void tearDown() {
 		driver.quit();
 	}
 
